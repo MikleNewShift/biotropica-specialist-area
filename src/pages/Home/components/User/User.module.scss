@@ -1,0 +1,30 @@
+@import "./../../../../styles/global.scss";
+
+.user {
+    padding: 0 16px;
+    width: 100%;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #e4e4e7;
+
+    &:last-child {
+        border: none;
+    }
+}
+
+.name {
+    p {
+        color: $color-black;
+    }
+}
+
+.link {
+    a {
+        @include link;
+        color: $color-link;
+    }
+}
