@@ -26,6 +26,7 @@ export const Home = (props: Props) => {
     { name: "Алексей Евгеньевич Смирнов" },
     { name: "Тестовый Пользователь" },
     { name: "Ваня Программист Без Отпуска" },
+    { name: "последний юзер" },
   ];
 
   return (
@@ -56,9 +57,11 @@ export const Home = (props: Props) => {
           <input id="search" type="text" placeholder="Поиск пользователей..." />
         </label>
       </div>
-      {users.map((user, i) => (
-        <User user={user} key={i} />
-      ))}
+      <div className={s.usersList}>
+        {users.map((user, i) => (
+          <User user={user} key={i} />
+        ))}
+      </div>
     </div>
   );
 };

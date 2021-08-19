@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import { ErrorPage } from "./pages/404/containers/404";
 import { Home } from "./pages/Home/containers/Home";
-import { Admin } from "./pages/Admin/containers/Admin";
 import { Profile } from "./pages/Profile/containers/Profile";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -69,8 +68,6 @@ function App() {
             <Route exact path="/profile" component={Profile} />
 
             <Route exact path="/video" component={Video} />
-
-            <Route exact path="/admin" component={Admin} />
 
             <Route component={ErrorPage} />
           </Switch>

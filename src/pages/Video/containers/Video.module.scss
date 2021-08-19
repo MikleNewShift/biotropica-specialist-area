@@ -4,9 +4,7 @@
     position: relative;
     width: 100%;
 
-    max-height: calc(100vh - 231px);
-
-    overflow-y: scroll;
+    height: calc(100vh - 121px);
 
     background: #ffffff;
     filter: drop-shadow(0px 0px 40px rgba(111, 97, 208, 0.11));
@@ -92,6 +90,13 @@
     justify-content: center;
 }
 
+.consultationsList {
+    width: 100%;
+    max-height: calc(100vh - 183px);
+
+    overflow-y: scroll;
+}
+
 .titleNew,
 .titleOld {
     padding: 0 0 0 16px;
@@ -131,5 +136,60 @@
 
     svg path {
         fill: $color-link !important;
+    }
+}
+
+.popup {
+    width: 100vw;
+    height: 100vh;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(37, 37, 37, 0.25);
+}
+
+.popupContainer {
+    width: 840px;
+    height: 324px;
+
+    background-color: #ffffff;
+
+    border-radius: 30px;
+
+    .title {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        h2 {
+            @include Heading-1;
+        }
+    }
+
+    .divider {
+        width: 100%;
+        height: 1px;
+
+        margin: 25px 0 50px 0;
+
+        background-color: $color-divider;
+    }
+
+    .btns {
+        margin: 20px 0 0 0;
+
+        display: flex;
+        align-items: center;
+
+        z-index: -2;
+    }
+
+    .saveBtn {
+        margin: 0 20px 0 0;
     }
 }
