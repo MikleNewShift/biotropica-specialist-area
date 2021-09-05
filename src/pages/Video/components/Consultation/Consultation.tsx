@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 
 import s from "./Consultation.module.scss";
 
@@ -10,9 +10,10 @@ export interface IConsultation {
 
 interface Props {
   consultation: IConsultation;
+  setPopup: Dispatch<SetStateAction<boolean>>;
 }
 
-export const Consultation = ({ consultation }: Props) => {
+export const Consultation = ({ consultation, setPopup }: Props) => {
   const [visible, setVisible] = useState(false);
 
   function showPopUp() {
@@ -29,11 +30,7 @@ export const Consultation = ({ consultation }: Props) => {
       </div>
       <div className={s.client}>
         <p>{consultation.client}</p>
-        <div
-          className={s.dots}
-          style={visible ? { transform: "rotate(90deg)" } : {}}
-          onClick={showPopUp}
-        >
+        <div className={s.dots} onClick={showPopUp}>
           <svg
             width="20"
             height="20"
@@ -51,24 +48,26 @@ export const Consultation = ({ consultation }: Props) => {
           </svg>
         </div>
       </div>
-      {visible && <PopUp />}
-    </div>
-  );
-};
-
-const PopUp = () => {
-  return (
-    <div className={s.popUp}>
-      <div className={s.elem}>
-        <div className={s.text}>
-          <p>Задать дату и время</p>
+      {visible && (
+        <div className={s.popUp}>
+          <div className={s.elem}>
+            <div
+              className={s.text}
+              onClick={() => {
+                setPopup(true);
+                setVisible(false);
+              }}
+            >
+              <p>Задать дату и время</p>
+            </div>
+          </div>
+          <div className={s.elem}>
+            <div className={s.text}>
+              <p>Удалить консультацию</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className={s.elem}>
-        <div className={s.text}>
-          <p>Удалить консультацию</p>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

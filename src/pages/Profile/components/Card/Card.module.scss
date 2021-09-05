@@ -12,115 +12,165 @@
   background: #ffffff;
   box-shadow: 0px 0px 6px rgba(205, 199, 230, 0.5);
   border-radius: 15px;
-}
 
-.avatar {
-  width: 112px;
-  height: 112px;
-
-  border: 3px solid #f2f2f7;
-  box-sizing: border-box;
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-
-  img {
-    height: 100%;
-  }
-}
-
-// .profile__name
-
-.role {
-  margin: 20px 0 0 0;
-  p {
-    @include Heading-3;
-    color: $color-primary;
+  @include for-phone {
+    padding: 30px 10px;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
   }
 
-  color: $color-primary;
-}
+  .avatar {
+    width: 112px;
+    height: 112px;
 
-.name {
-  margin: 10px 0 0 0;
-  p {
-    @include Heading-3;
-    color: $color-black;
-  }
-}
+    border: 3px solid #f2f2f7;
+    box-sizing: border-box;
+    border-radius: 50%;
 
-.mail,
-.phone {
-  margin: 10px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  p {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
+    overflow: hidden;
 
-    color: #736f8b;
-  }
-}
+    img {
+      height: 100%;
+    }
 
-.experience {
-  margin: 5px 0 0 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.education {
-  margin: 5px 0 0 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.title {
-  p {
-    @include text-regular;
-    color: $color-black;
-  }
-}
-
-.text {
-  margin: 5px 0 0 0;
-  p {
-    @include text-regular;
-    color: $color-grey;
-  }
-}
-
-.edit {
-  margin: 20px 0 0 0;
-  display: flex;
-
-  cursor: pointer;
-
-  a {
-    text-decoration: none;
-    font-size: 14px;
-    color: #6f61d0;
-
-    &::after {
-      content: "";
-
-      display: block;
-      width: 100%;
-      height: 1px;
-
-      background-color: rgba(111, 97, 208, 0.5);
-      border-radius: 5px;
+    @include for-phone {
+      width: 90px;
+      height: 90px;
     }
   }
-}
 
-.icon {
-  margin: 0 10px 0 0;
+  .cardInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include for-phone {
+      width: 178px;
+      align-items: flex-start;
+    }
+  }
+
+  // .profile__name
+
+  .role {
+    margin: 20px 0 0 0;
+    p {
+      @include Heading-3;
+      color: $color-primary;
+    }
+
+    color: $color-primary;
+
+    @include for-phone {
+      margin: 0;
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .name {
+    margin: 10px 0 0 0;
+    p {
+      @include Heading-3;
+      color: $color-black;
+    }
+
+    @include for-phone {
+      margin: 7px 0 0 0;
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .mail,
+  .phone {
+    margin: 10px 0 0 0;
+
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+
+      color: #736f8b;
+    }
+
+    @include for-phone {
+      margin: 7px 0 0 0;
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .experience,
+  .education {
+    margin: 7px 0 0 0;
+
+    text-align: center;
+
+    @include for-phone {
+      text-align: start;
+    }
+  }
+
+  .title {
+    p {
+      @include text-regular;
+      color: $color-black;
+    }
+
+    @include for-phone {
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .text {
+    @include text-regular;
+    color: $color-grey;
+
+    @include for-phone {
+      font-size: 14px;
+    }
+  }
+
+  .edit {
+    margin: 20px 0 0 0;
+    display: flex;
+
+    cursor: pointer;
+
+    a {
+      text-decoration: none;
+      font-size: 14px;
+      color: #6f61d0;
+
+      &::after {
+        content: "";
+
+        display: block;
+        width: 100%;
+        height: 1px;
+
+        background-color: rgba(111, 97, 208, 0.5);
+        border-radius: 5px;
+      }
+    }
+
+    @include for-phone {
+      margin: 7px 0 0 0;
+    }
+  }
+
+  .icon {
+    margin: 0 10px 0 0;
+  }
 }

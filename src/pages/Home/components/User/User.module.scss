@@ -14,11 +14,28 @@
     &:last-child {
         border: none;
     }
+
+    @include for-phone {
+        height: unset;
+        padding: 20px 0 15px 0;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: unset;
+    }
 }
 
 .name {
     p {
         color: $color-black;
+    }
+
+    @include for-phone {
+        margin: 0 0 13px 0;
+
+        p {
+            font-weight: 500;
+            font-size: 14px;
+        }
     }
 }
 
@@ -26,5 +43,9 @@
     a {
         @include link;
         color: $color-link;
+
+        @include for-phone {
+            font-size: 14px;
+        }
     }
 }

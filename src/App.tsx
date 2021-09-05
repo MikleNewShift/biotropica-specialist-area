@@ -32,6 +32,7 @@ import { Header } from "./shared/Global/Header/Header";
 
 import "./styles/global.scss";
 import { Video } from "./pages/Video/containers/Video";
+import { HeaderMobile } from "./shared/Global/HeaderMobile/HeaderMobile";
 
 function App() {
   const isAuth = useSelector(selectIsAuth);
@@ -39,6 +40,10 @@ function App() {
   const history = useHistory();
   const location = useLocation();
   const dispatch = useDispatch();
+
+  const [mobile, setMobile] = useState<boolean>(false);
+
+  const [burger, setBurger] = useState<boolean>(false);
 
   const [redirect, setRedirect] = useState<boolean>(false);
   const [page, setPage] = useState<string>("Главная");
@@ -56,10 +61,29 @@ function App() {
     dispatch(setUserResponse(undefined));
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (document.documentElement.clientWidth < 768) {
+      setMobile(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    setBurger(false);
+  }, [location.pathname]);
+
   return (
     <>
-      <Sidebar setPage={setPage} />
-      <Header page={page} />
+      {mobile ? <></> : <Sidebar setPage={setPage} />}
+      {mobile ? (
+        <HeaderMobile
+          burger={burger}
+          setBurger={setBurger}
+          setPage={setPage}
+          page={page}
+        />
+      ) : (
+        <Header page={page} />
+      )}
       <div className="page">
         <div className="wrapper">
           <Switch>

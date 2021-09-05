@@ -18,6 +18,14 @@
         @include Heading-2;
         color: $color-black;
     }
+
+    @include for-phone {
+        h4 {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 120%;
+        }
+    }
 }
 
 .text {
@@ -31,6 +39,14 @@
     }
 
     transition: max-height 0.4s ease;
+
+    @include for-phone {
+        p {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 140%;
+        }
+    }
 }
 
 .full {
@@ -50,6 +66,10 @@
     p {
         @include link;
         color: $color-secondary;
+
+        @include for-phone {
+            font-size: 14px;
+        }
     }
 }
 

@@ -5,29 +5,31 @@ import s from "./Video.module.scss";
 import { Consultation } from "../components/Consultation/Consultation";
 
 import { IConsultation } from "../components/Consultation/Consultation";
+import { PopUp } from "../components/PopUp/PopUp";
 
 interface Props {}
 
 export const Video = (props: Props) => {
-  const [visible, setVisible] = useState(true);
+  const [popup, setPopup] = useState(false);
 
   const consultations: IConsultation[] = [
     { date: "16 июня 2021", time: "14:30", client: "Иван Васильевич Пупкин" },
-    { date: "16 июня 2021", time: "16:30", client: "Иван Васильевич Пупкин" },
-    { date: "17 июня 2021", time: "14:30", client: "Иван Васильевич Пупкин" },
-    { date: "17 июня 2021", time: "16:30", client: "Иван Васильевич Пупкин" },
-    { date: "18 июня 2021", time: "14:30", client: "Иван Васильевич Пупкин" },
-    { date: "18 июня 2021", time: "16:30", client: "Иван Васильевич Пупкин" },
-    { date: "18 июня 2021", time: "14:30", client: "Иван Васильевич Пупкин" },
-    { date: "18 июня 2021", time: "16:30", client: "Иван Васильевич Пупкин" },
-    { date: "18 июня 2021", time: "14:30", client: "Иван Васильевич Пупкин" },
-    { date: "18 июня 2021", time: "16:30", client: "Иван Васильевич Пупкин" },
-    { date: "18 июня 2021", time: "14:30", client: "Иван Васильевич Пупкин" },
-    { date: "18 июня 2021", time: "16:30", client: "Иван Васильевич Пупкин" },
-    { date: "18 июня 2021", time: "14:30", client: "Иван Васильевич Пупкин" },
-    { date: "18 июня 2021", time: "16:30", client: "Иван Васильевич Пупкин" },
-    { date: "18 июня 2021", time: "14:30", client: "Иван Васильевич Пупкин" },
-    { date: "18 июня 2021", time: "16:30", client: "Иван Васильевич Пупкин" },
+    { date: "16 июня 2021", time: "16:30", client: "Иван Васильевич Кашетов" },
+    { date: "16 июня 2021", time: "18:30", client: "Иван Васильевич Иваненко" },
+    {
+      date: "30 августа 2021",
+      time: "14:30",
+      client: "Кирилл Вячеславович Кузнецов",
+    },
+    {
+      date: "29 сентября 2021",
+      time: "14:30",
+      client: "Маргарита Святославовна Баконина",
+    },
+    { date: "16 июня 2021", time: "14:30", client: "Иван Васильевич Пупкин" },
+    { date: "16 июня 2021", time: "14:30", client: "Иван Васильевич Пупкин" },
+    { date: "16 июня 2021", time: "14:30", client: "Иван Васильевич Пупкин" },
+    { date: "16 июня 2021", time: "14:30", client: "Иван Васильевич Пупкин" },
   ];
 
   const consultationsOld: IConsultation[] = [
@@ -82,7 +84,11 @@ export const Video = (props: Props) => {
           </div>
           <div className={s.consultationsComing}>
             {consultations.map((consultation, i) => (
-              <Consultation consultation={consultation} key={i} />
+              <Consultation
+                consultation={consultation}
+                setPopup={setPopup}
+                key={i}
+              />
             ))}
           </div>
           <div className={s.titleOld}>
@@ -90,33 +96,16 @@ export const Video = (props: Props) => {
           </div>
           <div className={s.consultationsOld}>
             {consultationsOld.map((consultation, i) => (
-              <Consultation consultation={consultation} key={i} />
+              <Consultation
+                consultation={consultation}
+                setPopup={setPopup}
+                key={i}
+              />
             ))}
           </div>
         </div>
       </div>
-      {visible && <PopUp />}
+      {popup && <PopUp setPopup={setPopup} />}
     </>
-  );
-};
-
-const PopUp = () => {
-  return (
-    <div className={s.popup}>
-      <div className={s.popupContainer}>
-        <div className={s.title}>
-          <h2>Новый пользователь</h2>
-        </div>
-        <div className={s.divider}></div>
-        <div className={s.btns}>
-          <div className={`${s.button} ${s.buttonPrimary} ${s.saveBtn}`}>
-            <p>Сохранить</p>
-          </div>
-          <div className={`${s.button} ${s.buttonPrimary} ${s.cancelBtn}`}>
-            <p>Отмена</p>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 };
